@@ -9,38 +9,59 @@
 #catbed{
 	width:300px;
 	height:170px;
-	background-image:url(catbed.jpg);}
+	background-image:url(catbed.png);
+	position:relative;
+	top:230px;
+	left:580px;
+	}
 
 #bed{
 	width:240px;
 	height:190px;
-	background-image:url(bed.jpg);}
+	background-image:url(images.png);
+	background-size:contain;
+	position:relative;
+	top:70px;
+	right:20px;}
+
 
 #couch{
 	width:240px;
 	height:200px;
-	background-image:url(couch.jpg);}
+	background-image:url(couch.png);
+	position:relative;
+	bottom:400px;
+	left:1200px;}
 
 #cat{
 	width:170px;
 	height:270px;
-	background-image:url(cat.jpg);}
+	background-image:url(cat.png);
+	position:relative;
+	top:170px;
+	left:630px;}
 
+#background{
+	background-image:url(crossroads.jpg);
+	width:100%;
+	height:800px;
+	background-size:cover;
+}
+
+body{
+	margin:0px;
+}
 
 </style>
 </head>
-<body>
+<div id="background">
 <a href="projects.html">
-<center>
 <div id="catbed"></div>
 </a>
-</center>
 <a href="journal.html">
 <div id="bed"></div>
 </a>
-<center>
 <div id="cat"></div>
-</center>
 <a href="about.html">
 <div id="couch"></div>
 </a>
