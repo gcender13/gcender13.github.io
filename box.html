@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+	#box{
+		width:100px;
+		height:100px;
+		background-image:https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/10efa4a0-82d4-4377-af11-ce6595e76e8c/d5hihjh-a917158d-ee61-49aa-b73f-e75b12b7608d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzEwZWZhNGEwLTgyZDQtNDM3Ny1hZjExLWNlNjU5NWU3NmU4Y1wvZDVoaWhqaC1hOTE3MTU4ZC1lZTYxLTQ5YWEtYjczZi1lNzViMTJiNzYwOGQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.zy5FGUJ0CEp7RSmi1IebwVvZW0R5vO0eyQ3IQQf8dF0;
+		position:absolute;
+		top:500px;
+		transition:1s;
+	}
+	#box2{
+		width:100px;
+		height:100px;
+		background-color:red;
+		position:absolute;
+		top:200px;
+		transition:1s;
+		opacity:0;
+	}
+
+
+
+	</style>
+</head>
+<body>
+<div id="box"></div>
+<div id="box2"></div>
+<script type="text/javascript">
+box.addEventListener("click", function(){box.style.top = "200px";})
+
+box2.addEventListener("click", function(){box.style.top = "500px";})
+
+</script>
+</body>
+</html>
