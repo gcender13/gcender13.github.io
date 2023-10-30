@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<style type="text/css">
-		
+
 	#doors{
 	height:700px;
 	width:100%;
@@ -13,22 +13,104 @@
 	background-image:url(doors.jpg);
 	background-size:cover;
 	z-index:0;
+	opacity:1;
+	position:absolute;
 	}
-	#button{
+
+	#doorsopen{
+	height:700px;
+	width:100%;
+	background-repeat:no-repeat;
+	background-image:url(doorsopen.png);
+	background-size:cover;
+	z-index:0;
+	opacity:0;
+	position:absolute;
+	}
+
+#space{
+	height:600px;
+	width:860px;
+	background-repeat:no-repeat;
+	background-image:url(space.png);
+	background-size:cover;
+	z-index:-1;
+	opacity:1;
+	position:absolute;
+	left:300px;
+	top:100px;
+	}
+
+
+	#closebutton{
 	height:50px;
 	width:50px;
 	background-repeat:no-repeat;
 	background-image:url(button.png);
 	background-size:cover;
 	z-index:2;
+	position:absolute;
+	top:410px;
+	left:1166px;
 	}
-	#button{
-	height:140px;
-	width:70px;
+
+	#openbutton{
+
+	height:50px;
+	width:50px;
 	background-repeat:no-repeat;
 	background-image:url(button.png);
 	background-size:cover;
+	z-index:2;
+	position:absolute;
+	top:410px;
+	right:1167px;
+	}
+
+	#amogus{
+	height:600px;
+	width:500px;
+	background-repeat:no-repeat;
+	background-size:contain;
+	background-image:url(amogus.png);
+	z-index:3;
+	opacity:0;
+	position:absolute;
+	top:100px;
+	left:500px;
+	transition:1s;
+	}
+
+	#closepanel{
+	height:100px;
+	width:70px;
+	background-repeat:no-repeat;
+	background-image:url(panel.png);
+	background-size:cover;
 	z-index:1;
+	position:absolute;
+	top:380px;
+	left:1143px;
+	}
+
+	#openpanel{
+	height:100px;
+	width:70px;
+	background-repeat:no-repeat;
+	background-image:url(panel.png);
+	background-size:cover;
+	z-index:1;
+	position:absolute;
+	top:380px;
+	right:1170px;
+	}
+
+
+	.text{
+		width:100%;
+		position:relative;
+		top:-20%;
+		text-align:center;
 	}
 
 	</style>
@@ -36,7 +118,42 @@
 </head>
 <body>
 <div id="doors"></div>
-<div id="panel"></div>
-<div id="button"></div>
+<div id="openpanel"></div>
+<div id="openbutton">
+<div class="text">
+open
+</div>
+</div>
+<div id="closepanel"></div>
+<div id="closebutton">
+	<div class="text">
+close
+</div>
+</div>
+<div id="doorsopen"></div>
+<div id="space"></div>
+<div id="amogus"></div>
+<div id="open"></div>
+<div id="close"></div>
+<audio src="vineboom.mp3" id="vineboom"></audio>
+<audio src="scream.mp3" id="scream"></audio>
+
+
+<script type="text/javascript">
+	openbutton.addEventListener("click",function(){
+		doors.style.opacity="0";
+		doorsopen.style.opacity="1";
+		amogus.style.opacity="1"
+		vineboom.play()
+	})
+
+	closebutton.addEventListener("click",function(){
+		doors.style.opacity="1";
+		doorsopen.style.opacity="0";
+		amogus.style.opacity="0"
+		scream.play()
+	})
+
+</script>
 </body>
 </html>
