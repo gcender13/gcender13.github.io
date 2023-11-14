@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cat Complilation!</title>
+<style type="text/css">
+	
+#caciopics{
+	width:500px;
+	height:400px;
+	background-image:url(cacio1.jpg);
+	background-size:contain;
+	background-repeat:no-repeat;
+	transition:.3s;
+}	
+</style>
+</head>
+<body>
+<center>
+<div id="caciopics"></div>
+</center>
+<script type="text/javascript">
+
+	var clickcounter = 2
+
+	caciopics.addEventListener("click", function(){
+		caciopics.style.backgroundImage = "url(cacio"+clickcounter+".jpg)"
+		if(clickcounter<17){
+		clickcounter=clickcounter+1}
+		else{clickcounter = 2}
+	})
+
+</script>
+</body>
+</html>
