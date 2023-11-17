@@ -12,23 +12,49 @@
 	background-repeat:no-repeat;
 	transition:.3s;
 	background-position:center;
-
 }	
+#pepepics{
+	width:500px;
+	height:400px;
+	background-image:url(pepe1.jpg);
+	background-size:contain;
+	background-repeat:no-repeat;
+	transition:.3s;
+	background-position:center;
+}	
+#caciovid1{
+	position:absolute;
+	bottom:330px;
+}
+
 </style>
 </head>
 <body>
 <center>
 <div id="caciopics"></div>
+<div id="pepepics"></div>
 </center>
+<div id="caciovid1">
+<video width="450" height="400" autoplay muted>
+<source src="caciovid1.mp4" type="video/mp4">
+</video>
+</div>
 <script type="text/javascript">
 
-	var clickcounter = 2
+	var cacioclickcounter = 2
+	var pepeclickcounter = 2
 
 	caciopics.addEventListener("click", function(){
-		caciopics.style.backgroundImage = "url(cacio"+clickcounter+".jpg)"
-		if(clickcounter<17){
-		clickcounter=clickcounter+1}
-		else{clickcounter = 2}
+		caciopics.style.backgroundImage = "url(cacio"+cacioclickcounter+".jpg)"
+		if(cacioclickcounter<17){
+		cacioclickcounter=cacioclickcounter+1}
+		else{cacioclickcounter = 2}
+	})
+	pepepics.addEventListener("click", function(){
+		pepepics.style.backgroundImage = "url(pepe"+pepeclickcounter+".jpg)"
+		if(pepeclickcounter<17){
+		pepeclickcounter=pepeclickcounter+1}
+		else{pepeclickcounter = 2}
 	})
 
 </script>
