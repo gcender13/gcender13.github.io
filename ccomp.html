@@ -3,7 +3,9 @@
 <head>
 	<title>Cat Complilation!</title>
 <style type="text/css">
-	
+	body{background-image:url(wallpaper.jpg);}	
+
+
 #caciopics{
 	width:500px;
 	height:400px;
@@ -21,10 +23,30 @@
 	background-repeat:no-repeat;
 	transition:.3s;
 	background-position:center;
+	position:relative;
+	top:30px;
 }	
 #caciovid1{
 	position:absolute;
-	bottom:330px;
+	bottom:300px;	
+
+}
+#bothvid1{
+	position:absolute;
+	bottom:300px;
+	left:980px;	
+
+}
+#bothvid2{
+	position:absolute;
+	top:350px;
+	left:980px;	
+}
+#pepevid1{
+	position:absolute;
+	top:300px;
+
+
 }
 
 </style>
@@ -35,8 +57,23 @@
 <div id="pepepics"></div>
 </center>
 <div id="caciovid1">
-<video width="450" height="400" autoplay muted>
+<video width="450" height="400" loop autoplay muted>
 <source src="caciovid1.mp4" type="video/mp4">
+</video>
+</div>
+<div id="bothvid1">
+<video width="450" height="400" loop autoplay muted>
+<source src="bothvid1.mp4" type="video/mp4">
+</video>
+</div>
+<div id="bothvid2">
+<video width="450" height="400" loop autoplay muted>
+<source src="bothvid2.mp4" type="video/mp4">
+</video>
+</div>
+<div id="pepevid1">
+<video width="450" height="510" loop autoplay muted>
+<source src="pepevid1.mp4" type="video/mp4">
 </video>
 </div>
 <script type="text/javascript">
@@ -52,7 +89,7 @@
 	})
 	pepepics.addEventListener("click", function(){
 		pepepics.style.backgroundImage = "url(pepe"+pepeclickcounter+".jpg)"
-		if(pepeclickcounter<17){
+		if(pepeclickcounter<18){
 		pepeclickcounter=pepeclickcounter+1}
 		else{pepeclickcounter = 2}
 	})
