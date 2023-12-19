@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<style type="text/css">
+		.skyblock{
+		height:50px;
+		width:50px;
+		background-image:url(skyblock.webp);
+		background-size:contain;
+		background-color:blue;
+		display:inline-block;
+
+	}
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+	var counter = 0;
+	var timing = 1000 
+
+	function makeDiv(){
+	var hours = document.createElement("div");
+	document.body.appendChild(hours)
+	hours.classList.add("skyblock");
+	counter=counter+1;
+
+	if (counter<2)
+	{ timing = 1000
+
+	}
+
+	if (counter>2)
+	{ timing = 100
+
+	}
+
+
+	}
+
+	setInterval(makeDiv, timing)
+
+
+		
+	
+	</script>
+
+</body>
+</html>

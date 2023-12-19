@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title></title>
+<style type="text/css">
+	.skyblock{
+		height:50px;
+		width:50px;
+		background-image:url(skyblock.webp);
+		background-size:contain;
+		background-color:blue;
+		display:inline-block;
+
+	}
+
+</style>
+</head>
+<body>
+<center><h1>
+How many hours have I played Skyblock for?
+</center>
+<script type="text/javascript">
+
+function makeSkyblock(input){
+
+	function makeDiv(){
+	var hours = document.createElement("div");
+	document.body.appendChild(hours)
+	hours.classList.add("skyblock");
+	}
+
+	makeDiv()
+
+	// if (input==6)
+	// 	{setInterval(makeDiv,100)}		
+		
+		// if (input>5)
+		// {setInterval(makeSkyblock,500)}		
+
+		// if (input>20)
+		// {setInterval(makeSkyblock,200)}
+		// if (input>50)
+
+		// {setInterval(makeSkyblock,100)}
+		// if (input>100)
+		// {
+		// setInterval(makeSkyblock,50)}
+		// if (input>100)
+		// {
+		// setInterval(makeSkyblock,25)}
+
+
+	}
+	
+	for (var i = 1; i<10; i=i+1){
+		makeSkyblock(i)
+		}
+
+</script>
+</body>
+</html>

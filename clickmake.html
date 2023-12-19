@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title></title>
+	<style type="text/css">
+	.fruit{
+		height:70px;
+		width:70px;
+
+	}
+	#bowl{
+		width:650px;
+		height:650px;
+		background-image:url(bowl.png);
+		background-repeat:no-repeat;
+		background-size:contain;
+		position:relative;
+		bottom:400px;
+	}
+	</style>
+</head>
+<body>
+<div id="kiwi" class="fruit"></div>
+<div id="grape" class="fruit"></div>
+<div id="banana" class="fruit"></div>
+<div id="melon" class="fruit"></div>
+<div id="pine" class="fruit"></div>
+<div id="rasp" class="fruit"></div>
+<div id="mango" class="fruit"></div>
+<div id=bowl></div>
+ 	<script type="text/javascript">
+
+		bowl.addEventListener("click", function makeFruit(event){
+		var cookie = document.createElement("div")
+		document.body.appendChild(cookie)
+		cookie.style.width = "50px"
+		cookie.style.height = "50px"
+		cookie.style.backgroundImage = "url(https://assets.bonappetit.com/photos/5ca534485e96521ff23b382b/1:1/w_2560%2Cc_limit/chocolate-chip-cookie.jpg)"
+		cookie.style.backgroundRepeat = "no-repeat"
+		cookie.style.backgroundSize = "contain"
+		cookie.style.position="absolute"
+		console.log(event)
+		cookie.style.left = event.clientX-10 + "px"
+		cookie.style.top = event.clientY-10 + "px"})
+		
+	</script>
+</body>
+</html>
