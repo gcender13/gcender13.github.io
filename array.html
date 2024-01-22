@@ -3,18 +3,96 @@
 <head>
 	
 	<title></title>
+	<style type="text/css">
+		#output{
+			width:300px;
+			height:100px;
+			border:3px solid black;}
+
+		#button{
+
+			/*background-color:teal;
+			color:white;
+			border:1px solid blue;
+			font-family:courier;
+			border-radius:5%;
+			width:100px;
+			height:100px;*/
+			width:105px;
+			height:55px;
+			background-size:contain;
+			background-repeat:no-repeat;
+			margin-top:100px;
+			background-image:url(genbutton.png);
+/*			padding-top:60px;*/
+
+		}
+
+
+	</style>
 </head>
 <body>
+	<center>
+	<div id=output></div>
+	<br><br>
+	<div id=button>
+
+	generate</div>
+	</center>
+	
+
 <script type="text/javascript">
-	var namelength = (Math.round(Math.random()*4))+4
+	// button.innerText = ""
+
+		var randomc1; 
+		var randomv1; 		
+		var randomc2;
+		var randomv2;		
+		var randomc3;
+		var randomv3;		
+		var randomc4; 
+		var randomv4; 		
+		var c1; 
+		var v1; 
+		var c2; 
+		var v2; 
+		var c3; 
+		var v3; 
+		var c4;
+		var v4;
+
 	var vowels = ["a", "e", "i", "o", "u", "y"]
-	var combsandconsos = ["b", "c", "d", "f", "g", "h", "j", "k", "l","m","n","p","q","r","s","t","v","w","x","z","bl","cl","pl","fl","gl","sl","sh","sp","sk","sc","sw","st","sm","sn","br","cr","dr","fr","gr","pr","tr","ng"]
+	var combsandconsos = ["b", "c", "d", "f", "g", "h", "j", "k", "l","m","n","p","r","s","t","v","w","z","bl","cl","pl","fl","gl","sl","sh","sp","sk","sc","sw","st","sm","sn","br","cr","dr","fr","gr","pr","tr","ng"]
 	document.addEventListener("click",function(){
-		var randomv = Math.round(Math.random()*5)
-		var randomc = Math.round(Math.random()*5)
-		var c1 (combsandconsos[randomc])
-		var v1 (vowels[randomv])
-	})
+		 randomc1 = Math.round(Math.random()*39)
+		 randomv1 = Math.round(Math.random()*5)
+		 randomc2 = Math.round(Math.random()*39)
+		 randomv2 = Math.round(Math.random()*5)
+		 randomc3 = Math.round(Math.random()*39)
+		 randomv3 = Math.round(Math.random()*5)
+		 randomc4 = Math.round(Math.random()*39)
+		 randomv4 = Math.round(Math.random()*5)
+		 c1 = combsandconsos[randomc1]
+		 v1 = vowels[randomv1]
+		 c2 = combsandconsos[randomc2]
+		 v2 = vowels[randomv2]
+		 c3 = combsandconsos[randomc3]
+		 v3 = vowels[randomv3]
+		 c4 = combsandconsos[randomc4]
+		 v4 = vowels[randomv4]
+		 var namelength = Math.round(Math.random()*4)+4
+		 console.log(namelength)
+		 if(namelength == 4){
+		 	output.innerText = c1+v1+c2+v2}
+		 if(namelength == 5){
+		 	output.innerText = c1+v1+c2+v2+c3}
+		 if(namelength == 6){
+		 	output.innerText = c1+v1+c2+v2+c3+v3}
+		 if(namelength == 7){
+		 	output.innerText = c1+v1+c2+v2+c3+v3+c4}
+		 if(namelength == 8){
+		 	output.innerText = c1+v1+c2+v2+c3+v3+c4+v4}
+		})
 	
 </script>
 </body>

@@ -9,6 +9,7 @@
 </head>
 <body>
 <script type="text/javascript">
+	
 	function makeCookie() {
 		var cookie = document.createElement("div")
 		document.body.appendChild(cookie)
@@ -20,9 +21,12 @@
 		cookie.style.display = "inline-block"
 		cookie.style.opacity = "1"
 		cookie.addEventListener("click", function(){
-		cookie.style.opacity = "0"})}
+		cookie.style.opacity = "0"})
+		console.log(cookienumber)}
 		
-	setInterval(makeCookie,500)
+	for(var cookienumber = 0;cookienumber<15; cookienumber++){
+		setInterval(makeCookie,500)}
+	
 	
 
 

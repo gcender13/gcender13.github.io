@@ -4,9 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
 <style type= "text/css">
-
+body{font-family:'Pixelify Sans', sans-serif;}
 #square{
 	width:100px;
 	height:100px;
@@ -15,7 +17,7 @@
 
 #jumpscare{
 	width:200px;
-	height:200px;
+	height:100px;
 	background-image:url(doors.jpg);
 	background-size:contain;
 	background-repeat:no-repeat;
@@ -27,10 +29,10 @@
 	background-size:contain;
 	background-repeat:no-repeat;
 }
-#namegen{
+#wordgen{
 	width:200px;
 	height:200px;
-	background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/640px-Question_mark_%28black%29.svg.png);
+	background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWYsb0k7Im7QsjmjVViadf2PaO_a9xpzEUt6d3iRRLFg&s);
 	background-size:contain;
 	background-repeat:no-repeat;
 }
@@ -39,23 +41,24 @@
 </style>
 
 </head>
-<body>
+<body bgcolor="black">
 
 <center>
-Hey look it's a square!
+<p style = "color:limegreen;"> Hey look it's a square! </p>
 <a href="animation.html">
 <div id="square"></div>
 </a>
-Ooh some doors, is somthing behind them?
+<p style = "color:limegreen;"> Ooh some doors, is somthing behind them? </p>
 <a href="jumpscare.html">
 <div id="jumpscare"></div>
 </a>
-*meeeeeoeoeoeoeoewwwwwww* (Translation: I want food!)
+<p style = "color:limegreen;">*meeeeeoeoeoeoeoewwwwwww* (Translation: I want food!)</p>
 <a href="ccomp.html">
 <div id="ccomp"></div>
 </a>
+<p style = "color:limegreen;">Random word generator!</p>
 <a href="array.html">
-<div id="namegen"></div>
+<div id="wordgen"></div>
 </a>
 </center>
 </body>
