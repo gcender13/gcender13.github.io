@@ -14,6 +14,44 @@
 	top:230px;
 	left:580px;
 	}
+#curledcatcatbed{
+	width:200px;
+	height:100px;
+	background-image:url(curledcat.png);
+	position:absolute;
+	background-size:contain;
+	background-repeat:no-repeat;
+	top:240px;
+	left:650px;
+	z-index:0;
+	opacity:0;
+}
+
+#curledcatbed{
+	width:140px;
+	height:60px;
+	background-image:url(curledcat.png);
+	position:absolute;
+	background-size:contain;
+	background-repeat:no-repeat;
+	top:280px;
+	left:90px;
+	z-index:0;
+	opacity:0;
+}
+
+#curledcatcouch{
+	width:140px;
+	height:50px;
+	background-image:url(curledcat.png);
+	position:absolute;
+	background-size:contain;
+	background-repeat:no-repeat;
+	top:315px;
+	left:1340px;
+	z-index:0;
+	opacity:0;
+}
 
 #bed{
 	width:240px;
@@ -38,7 +76,9 @@
 	background-image:url(cat.png);
 	position:absolute;
 	top:470px;
-	left:630px;}
+	left:630px;
+	z-index:1;
+	opacity:1;}
 
 #background{
 	background-image:url(crossroads.jpg);
@@ -46,11 +86,20 @@
 	height:800px;
 	background-size:cover;
 }
-@keyframes walkcatbed {
+@keyframes walkcatbed{
+	100%{
+		top:150px;}
+}
+
+@keyframes walkbed{
 	100%{
 		top:150px;
-	}
-
+		left:0px;}
+}
+@keyframes walkcouch{
+	100%{
+		top:150px;
+		left:1250px;}
 }
 
 body{
@@ -60,24 +109,89 @@ body{
 
 </style>
 </head>
+<a href = "projects.html">
+<div id="curledcatcatbed"></div>
+</a>
 <div id="background">
-<a href="projects.html">
+<a href = "journal.html">
+<div id="curledcatbed"></div>
+</a>
+<a href = "about.html">
+<div id="curledcatcouch"></div>
+</a>
+<a id="projectsHref">
 <div id="catbed"></div>
 </a>
-<a href="journal.html">
+<a id="journalHref">
 <div id="bed"></div>
 </a>
 <div id="cat"></div>
-<a href="about.html">
+<a id="aboutHref">
 <div id="couch"></div>
 </a>
 <script type="text/javascript">
 	
-	catbed.addEventListener("click",function(){
+	function catbedHref(){
+		projectsHref.href="projects.html"
+		cat.style.opacity ="0"
+	}
+
+	function catbedShow(){
+		curledcatcatbed.style.opacity ="1"
+		curledcatcatbed.style.zIndex ="1"
+	}
+	function catbedStuff(){
 		cat.style.animationName="walkcatbed"
 		cat.style.animationDuration="1.5s"
-		cat.style.animationDuration="1"
-	})
+		setTimeout(catbedHref,1500)
+		setTimeout(catbedShow,1550)
+		bed.removeEventListener("click", bedStuff)
+		couch.removeEventListener("click", couchStuff)}
+
+	catbed.addEventListener("click",catbedStuff)
+	function bedHref(){
+		journalHref.href="journal.html"
+		cat.style.opacity ="0"
+	}
+	function bedShow (){
+		curledcatbed.style.opacity ="1"
+		curledcatbed.style.zIndex ="1"
+	}
+
+	function bedStuff (){
+		cat.style.animationName="walkbed"
+		cat.style.animationDuration="1.5s"
+		setTimeout(bedHref,1500)
+		setTimeout(bedShow,1550)
+		couch.removeEventListener("click",couchStuff)
+		catbed.removeEventListener("click",catbedStuff)
+	}
+
+	bed.addEventListener("click", bedStuff)
+
+	function couchHref(){
+		aboutHref.href="about.html"
+		cat.style.opacity ="0"
+	}
+
+	function couchShow(){
+		curledcatcouch.style.opacity ="1"
+		curledcatcouch.style.zIndex ="1"
+	}
+
+	function couchStuff(){
+		cat.style.animationName="walkcouch"
+		cat.style.animationDuration="1.5s"
+		setTimeout(couchHref,1500)
+		setTimeout(couchShow,1550)
+		bed.removeEventListener("click", bedStuff)
+		catbed.removeEventListener("click",catbedStuff)
+	}
+
+	couch.addEventListener("click",couchStuff)
+	
+		
+	
 </script>
 </body>
 </html>
