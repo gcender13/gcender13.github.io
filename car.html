@@ -61,15 +61,12 @@ function shoot(){
 		bullet.classList.add("bullet")
 		bullet.style.top = cartop+67+"px"
 		bullet.style.left = carleft+100+"px"
-		console.log("pew")}
-		setTimeout(shoot, 1000)
+		bullet.style.animationName = "bullettravel"
 
-function spawnwave1(){
-	
-}
-		
-for(var bulletlocation = carleft+100+"px";bulletlocation<1000;bulletlocation==bulletlocation+5){console.log(bulletlocation)
-bullet.style.top=bulletlocation}
+		console.log("pew")}
+		setInterval(shoot,1000)
+
+function spawnwave1(){}
 
 </script>
 </body>
