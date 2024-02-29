@@ -8,34 +8,52 @@
 		height:250px;
 		position:absolute;
 		top:250px;
-		left:220px;
-		border:10px solid black;
-	}
+		left:240px;
+		border:10px solid black;}
 	#pallette2{
 		width:250px;
 		height:250px;
 		position:absolute;
 		top:250px;
-		left:570px;
+		left:590px;
 		border:10px solid black;}
 	#pallette3{
 		width:250px;
 		height:250px;
 		position:absolute;
 		top:250px;
-		left:920px;
+		left:940px;
 		border:10px solid black;}
+	#rgbbox{
+		width:250px;
+		height:70px;
+		position:absolute;
+		top:100px;
+		left:590px;
+		border:10px solid black;
+		text-align:center;
+		font-size:50px;}
 	</style>
 </head>
 <body>
 <div id="pallette1"></div>
 <div id="pallette2"></div>
 <div id="pallette3"></div>
+<center>
+<button id="start">Start!</button>
+</center>
+<div id="rgbbox"></div>
 	<script type="text/javascript">
 		var red = 0
 		var green = 0
 		var blue = 0
-		document.addEventListener("click", function(){
+		var correct = 1
+
+		function lose(){
+
+			alert("you lost!")
+		}
+		function randomize(){
 		red1 = Math.round(Math.random()*255)
 		green1 = Math.round(Math.random()*255)
 		blue1 = Math.round(Math.random()*255)
@@ -45,10 +63,33 @@
 		red3 = Math.round(Math.random()*255)
 		green3 = Math.round(Math.random()*255)
 		blue3 = Math.round(Math.random()*255)
+		correct = Math.round(Math.random()*3)
+		console.log(correct)
 		pallette1.style.backgroundColor="rgb(" + red1 + "," + green1 + "," + blue1 + ")"
 		pallette2.style.backgroundColor="rgb(" + red2 + "," + green2 + "," + blue2 + ")"
 		pallette3.style.backgroundColor="rgb(" + red3 + "," + green3 + "," + blue3 + ")"
+		if(correct == 1){rgbbox.innerText = red1 + "," + green1 + "," + blue1}
+		if(correct == 2){rgbbox.innerText = red2 + "," + green2 + "," + blue2}
+		if(correct == 3){rgbbox.innerText = red3 + "," + green3 + "," + blue3}
+		}
+
+
+		start.addEventListener("click", randomize)
+
+
+		pallette1.addEventListener("click",function(){
+			if(correct == 1){randomize()}
+			else{lose()}
 		})
+		pallette2.addEventListener("click",function(){
+			if(correct == 2){randomize()}
+			else{lose()}
+		})
+		pallette3.addEventListener("click",function(){
+			if(correct == 3){randomize()}
+			else{lose()}
+		})
+		
 
 	</script>
 
