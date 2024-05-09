@@ -1,50 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Galaga 2</title>
+	<title></title>
 	<style type="text/css">
-		body, html {
-            overflow: hidden;
-        	margin:0;
-    		padding:0;
-    		width: 100%;}
 		#car{
 			height:100px;
 			width:100px;
-			background-image:url(ship.png);
-			background-size:contain;
+			background-color:red;
 			position:absolute;
 			top:400px;
 			left:500px;}
-		#background{
-			background-image:url(space.jpg);
-			width:100%;
-			height:1000px;
-			background-size:cover;
-			z-index:0;}
-		.bullet{
-			height:5px;
-			width:30px;
-			background-image:url(laser.png);
-			background-repeat:no-repeat;
-			z-index:1;
-			position:absolute;
-			animation-duration:1s;
-			animation-iteration-count:1;
-			animation-timing-function:linear;
-			}
-@keyframes bullettravel{
-to {left: 100%;}
-}
 	</style>
 </head>
 <body>
 <div id ="car"></div>
-<div id ="background"></div>
-
 <script type="text/javascript">
-window.addEventListener('scroll', function() {
-        window.scrollTo(0, 0);});
 var carleft = 500
 var cartop = 400
 var movement = "stop"
@@ -144,19 +114,6 @@ function moving(){
 		car.style.top=cartop+"px"
 }
 setInterval(moving, 25)
-function shoot(){
-	var bullet = document.createElement("div")
-	document.body.appendChild(bullet)
-	bullet.classList.add("bullet")
-	bullet.style.top = cartop+44+"px"
-	bullet.style.left = carleft+50+"px"
-	    bullet.style.animationName = "bullettravel"
-
-	bullet.addEventListener("animationend", function(){
-        bullet.classList.remove("bullet");
-    });
-		console.log("pew")}
-setInterval(shoot, 300)
 </script>
 </body>
 </html>

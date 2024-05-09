@@ -5,7 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<style type="text/css">
-
+#goback{
+	position:absolute;
+	left:630px;
+	top:600px;
+	width:150px;
+	height:80px;
+	opacity:0;
+}
 #catbed{
 	width:300px;
 	height:170px;
@@ -21,7 +28,7 @@
 	position:absolute;
 	background-size:contain;
 	background-repeat:no-repeat;
-	top:240px;
+	top:30px;
 	left:650px;
 	z-index:0;
 	opacity:0;
@@ -81,14 +88,17 @@
 	opacity:1;}
 
 #background{
-	background-image:url(crossroads.jpg);
+	background-image:url(crossroads.png);
 	width:100%;
-	height:800px;
+	height:1000px;
 	background-size:cover;
+	position:absolute;
+	bottom:0px;
+	
 }
 @keyframes walkcatbed{
 	100%{
-		top:150px;}
+		top:140px;}
 }
 
 @keyframes walkbed{
@@ -129,6 +139,7 @@ body{
 <a id="aboutHref">
 <div id="couch"></div>
 </a>
+<button id="goback">Go Back</button>
 <script type="text/javascript">
 	
 	function catbedHref(){
@@ -146,7 +157,12 @@ body{
 		setTimeout(catbedHref,1500)
 		setTimeout(catbedShow,1550)
 		bed.removeEventListener("click", bedStuff)
-		couch.removeEventListener("click", couchStuff)}
+		couch.removeEventListener("click", couchStuff)
+		// goback.addEventListener("click",goBack)
+		goback.style.opacity ="1"
+		goback.style.zIndex ="1"
+
+	}
 
 	catbed.addEventListener("click",catbedStuff)
 	function bedHref(){
@@ -165,6 +181,10 @@ body{
 		setTimeout(bedShow,1550)
 		couch.removeEventListener("click",couchStuff)
 		catbed.removeEventListener("click",catbedStuff)
+		// goback.addEventListener("click",goBack)
+		goback.style.opacity ="1"
+		goback.style.zIndex ="1"
+
 	}
 
 	bed.addEventListener("click", bedStuff)
@@ -186,6 +206,10 @@ body{
 		setTimeout(couchShow,1550)
 		bed.removeEventListener("click", bedStuff)
 		catbed.removeEventListener("click",catbedStuff)
+		// goback.addEventListener("click",goBack)
+		goback.style.opacity ="1"
+		goback.style.zIndex ="1"
+
 	}
 
 	couch.addEventListener("click",couchStuff)

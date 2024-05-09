@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		
+		#red{
+			width:20px;
+			height:20px;
+			background-color:red;
+			position:absolute;
+		}
+		#blue{
+			width:20px;
+			height:20px;
+			background-color:blue;
+			position:absolute;
+			
+		}
+	</style>
+</head>
+<body>
+<div id = "red"></div>
+<div id = "blue"></div>
+	<script type="text/javascript">
+	var horizontaloverlap;
+	var verticaloverlap;
+	red.style.left=300+"px"
+	red.style.top=400+"px"
+	redleft = parseFloat(red.style.left);
+    redtop = parseFloat(red.style.top); 
+    redright = redleft + red.offsetWidth;
+    redbottom = redtop + red.offsetHeight;
+	function bluecheck(){
+	blueleft = parseFloat(blue.style.left);
+    bluetop = parseFloat(blue.style.top); 
+    blueright = blueleft + blue.offsetWidth;
+    bluebottom = bluetop + blue.offsetHeight;
+	}
+	function overlapcheck(){
+	if(redright<=blueleft||redleft>=blueright){horizontaloverlap=0}
+		else{horizontaloverlap=1}
+	if(redbottom<=bluetop||redtop>=bluebottom){verticaloverlap=0}
+		else{verticaloverlap=1}
+	console.log(horizontaloverlap)
+	console.log(verticaloverlap)
+	console.log(redright)
+	console.log(blueleft)
+	}
+
+	document.addEventListener("mousemove", function (event){
+	console.log(event)
+	blue.style.left=event.clientX-10 + "px"
+	blue.style.top=event.clientY-10 + "px"
+	bluecheck()
+	overlapcheck()
+	})
+
+	</script>
+
+</body>
+</html>
