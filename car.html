@@ -7,7 +7,8 @@
             overflow: hidden;
         	margin:0;
     		padding:0;
-    		width: 100%;}
+    		width: 100%;
+    	}
 		#car{
 			height:100px;
 			width:100px;
@@ -15,13 +16,15 @@
 			background-size:contain;
 			position:absolute;
 			top:400px;
-			left:500px;}
+			left:500px;
+		}
 		#background{
 			background-image:url(space.jpg);
 			width:100%;
 			height:1000px;
 			background-size:cover;
-			z-index:0;}
+			z-index:0;
+		}
 		.bullet{
 			height:5px;
 			width:30px;
@@ -52,7 +55,6 @@
 			background-image:url(realenemy1.png);
 			z-index:1;
 			background-size:contain;
-
 			}
 @keyframes bullettravel{
 to {left: 100%;}
@@ -81,6 +83,27 @@ var wave
 var enemy1count
 var enemy1shoottimer = Math.floor(Math.random()*1200)
 var enemy1randomizer
+var bullet
+var enemybullet
+var playerright
+var enemybulletleft
+var enemybulletright
+var enemybullettop
+var enemybulletbottom
+var playerleft
+var playertop
+var playerbottom 
+var bullettop
+var enemyleft
+var enemytop
+var enemybottom
+var enemyright
+var bullettop
+var bulletleft
+var bulletright
+var bulletbottom
+var playerstatus = 0
+var enemystatus = 0
 document.addEventListener("keydown", function(event){
 	console.log(event.key)
 	if (event.key == "ArrowRight"){
@@ -138,8 +161,7 @@ document.addEventListener("keyup", function(event){
 			if (rightkeydown == 1){movement = "right"}
 			if (leftkeydown==1 && rightkeydown==0 && upkeydown==1){movement="up-left"}
 			if (downkeydown==0 && rightkeydown==1 && upkeydown==1){movement="up-right"}
-		}
-})
+		}})
 function moving(){
 	if (movement == "right"){
 		carleft = carleft+5
@@ -174,17 +196,17 @@ function moving(){
 }
 setInterval(moving, 25)
 function shoot(){
-	var bullet = document.createElement("div")
+	if (playerstatus == 0){
+	bullet = document.createElement("div")
 	document.body.appendChild(bullet)
 	bullet.classList.add("bullet")
 	bullet.style.top = cartop+44+"px"
 	bullet.style.left = carleft+50+"px"
 	bullet.style.animationName = "bullettravel"
 	bullet.addEventListener("animationend", function(){
-    bullet.remove()
-    })}
-setInterval(shoot, 300)
-
+    this.remove()
+})}}
+setInterval(shoot, 600)
 function spawnwave1(){
 	for (enemy1count = 0; enemy1count<5; enemy1count++){
 		var enemy1 = document.createElement("div")
@@ -208,80 +230,101 @@ function spawnwave1(){
 		}
 		if (enemy1count == 4){
 			enemy1.style.left=1200 + "px"
-			enemy1.style.top=100 + "px"}}}
-setTimeout(spawnwave1, 1)
+			enemy1.style.top=100 + "px"
+		}}}
+spawnwave1()
 function enemy1shoot(){
-	var enemybullet = document.createElement("div")
+		enemybullet = document.createElement("div")
 		document.body.appendChild(enemybullet)
 		enemybullet.classList.add("enemybullet")
 		enemybullet.style.animationName = "enemybullettravel"
-		enemy1randomizer = Math.floor(Math.random()*5)
-		if (enemy1randomizer == 0){
-			enemybullet.style.top = 650+"px"
-		}
-		if (enemy1randomizer == 1){
-			enemybullet.style.top = 520+"px"
-		}
-		if (enemy1randomizer == 2){
-			enemybullet.style.top = 390+"px"
-		}
-		if (enemy1randomizer == 3){
-			enemybullet.style.top = 260+"px"
-		}
-		if (enemy1randomizer == 4){
-			enemybullet.style.top = 130+"px"
-		}
+		enemy1randomizer = Math.floor(Math.random()*enemy1count)
+		let enemies = Array.from(document.getElementsByClassName("enemy1"))
+		if (enemies.length>0){
+		let selectedEnemy = enemies[enemy1randomizer]
+        let enemytop = parseFloat(getComputedStyle(selectedEnemy).top)
+		enemybullet.style.top = (enemytop + 30) + "px"
+		enemybullet.style.left = 1200 + "px"
 		enemybullet.addEventListener("animationend", function(){
-    	enemybullet.remove()
-    })}
+    	this.remove()})
+	}
+	else{
+		alert("You Win! Reload to play again!")
+	}
+    }
 		function randomBulletTime(){
-			  enemy1shoottimer = Math.floor(Math.random()*1200)
+			  enemy1shoottimer = Math.floor(Math.random()*300)
 			  setTimeout(enemy1shoot, enemy1shoottimer)
 			  setTimeout(randomBulletTime, enemy1shoottimer+1)
 		}
 		setTimeout(randomBulletTime,1)
 		function playercheck(){
-			var playerleft = parseFloat(car.style.left);
-    		var playertop = parseFloat(car.style.top); 
-    		var playerright = playerleft + car.offsetWidth;
-    		var playerbottom = playertop + car.offsetHeight;
-		}
+			playerleft = parseFloat(car.style.left);
+    		playertop = parseFloat((car.style.top)+20); 
+    		playerright = playerleft + 50;
+    		playerbottom = playertop + 75;
+    		 return {playerleft, playertop, playerright, playerbottom}
+		}	
 		function enemybulletcheck(){
-			var enemybulletleft = parseFloat(enemybullet.style.left)
-    		var enemybullettop = parseFloat(enemybullet.style.top)
-    		var enemybulletright = enemybulletleft + enemybullet.offsetWidth
-    		var enemybulletbottom = enemybullettop + enemybullet.offsetHeight
-		}
+			var enemybullets = Array.from(document.getElementsByClassName("enemybullet"))
+			enemybulletleft = enemybullets.map(element => parseFloat(getComputedStyle(element).left))
+    		enemybullettop = enemybullets.map(element => parseFloat(element.style.top))
+    		enemybulletright = enemybulletleft.map(left => left + 30)
+    		enemybulletbottom = enemybullettop.map(top => top + 5)
+  		return {enemybulletleft, enemybullettop, enemybulletright, enemybulletbottom};
+     }
 		function playerdeadcheck(){
-	if(playerright<=enemybulletleft||playerleft>=enemybulletright){horizontaloverlap=0}
-		else{horizontaloverlap=1}
-	if(playerbottom<=enemybullettop||playertop>=enemybulletbottom){verticaloverlap=0}
-		else{verticaloverlap=1}
-		if(verticaloverlap==1 && horizontaloverlap==1){
-		playerdead
-		}}
-		setInterval(playercheck,1)
-		setInterval(enemybulletcheck,1)
-		setInterval(playerdeadcheck,1)
-		function bulletcheck(){
-			var bulletleft = parseFloat(bullet.style.left)
-    		var bullettop = parseFloat(bullet.style.top)
-    		var bulletright = bulletleft + bullet.offsetWidth
-    		var bulletbottom = bullettop + bullet.offsetHeight
-		}
-	// 	function enemydeadcheck(){
-	// if(bulletright<=1200){horizontaloverlap=0}
-	// 	else{horizontaloverlap=1}
-	// if(bulletbottom<=enemybullettop||playertop>=enemybulletbottom){verticaloverlap=0}
-	// 	else{verticaloverlap=1}
-	// if(verticaloverlap==1 && horizontaloverlap==1){
-	// }
-	// 	}
+    let player = playercheck();
+    let enemybullets = enemybulletcheck();
+    let isDead = enemybullets.enemybulletleft.some((left, index) => {
+        let horizontaloverlap1 = player.playerright > left && player.playerleft < enemybullets.enemybulletright[index]
+        let verticaloverlap1 = player.playerbottom > enemybullets.enemybullettop[index] && player.playertop < enemybullets.enemybulletbottom[index]
+        return horizontaloverlap1 && verticaloverlap1
+    })
+    if (isDead) {
+        playerdead()
+    }}
+		setInterval(playerdeadcheck,5)
 		function playerdead(){
 			car.remove()
+			playerstatus = 1
+			setTimeout(dead, 200)
 		}
-		setInterval(bulletcheck,1)
-		setInterval(playerdeadcheck,1)
+		function dead(){
+			alert("You Died. Reload to play again!")
+		}
+		function enemycheck() {
+		let enemies = Array.from(document.getElementsByClassName("enemy1"))
+    let enemyleft = enemies.map(element => parseFloat(getComputedStyle(element).left));
+    let enemytop = enemies.map(element => parseFloat(getComputedStyle(element).top));
+    let enemyright = enemyleft.map(left => left + 70);
+    let enemybottom = enemytop.map(top => top + 70);
+    return { enemyleft, enemytop, enemyright, enemybottom };
+}
+function bulletcheck() {
+    var bullets = Array.from(document.getElementsByClassName("bullet"));
+    let bulletleft = bullets.map(element => parseFloat(getComputedStyle(element).left));
+    let bullettop = bullets.map(element => parseFloat(element.style.top));
+    let bulletright = bulletleft.map(left => left + 30);
+    let bulletbottom = bullettop.map(top => top + 5);
+    return { bulletleft, bullettop, bulletright, bulletbottom };
+}
+function enemydeadcheck() {
+    let enemies = enemycheck();
+    let bullets = bulletcheck();
+    enemies.enemyleft.forEach((left, enemyIndex) => {
+        let horizontaloverlap2 = false;
+        let verticaloverlap2 = false;
+        for (let bulletIndex = 0; bulletIndex < bullets.bulletleft.length; bulletIndex++) {
+            horizontaloverlap2 = enemies.enemyright[enemyIndex] > bullets.bulletleft[bulletIndex] && left < bullets.bulletright[bulletIndex];
+            verticaloverlap2 = enemies.enemybottom[enemyIndex] > bullets.bullettop[bulletIndex] && enemies.enemytop[enemyIndex] < bullets.bulletbottom[bulletIndex];
+
+            if (horizontaloverlap2 && verticaloverlap2) {
+                let enemyElement = document.getElementsByClassName("enemy1")[enemyIndex]
+                enemyElement.remove()
+                break
+            }}})}
+setInterval(enemydeadcheck, 5);
 </script>
 </body>
 </html>

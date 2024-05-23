@@ -111,7 +111,12 @@
 		top:150px;
 		left:1250px;}
 }
-
+/*@keyframes goback{
+	100%{
+		top:470px;
+		left:630px;}
+}
+*/
 body{
 	margin:0px;
 }
@@ -159,8 +164,8 @@ body{
 		bed.removeEventListener("click", bedStuff)
 		couch.removeEventListener("click", couchStuff)
 		// goback.addEventListener("click",goBack)
-		goback.style.opacity ="1"
-		goback.style.zIndex ="1"
+		// goback.style.opacity ="1"
+		// goback.style.zIndex ="1"
 
 	}
 
@@ -182,8 +187,8 @@ body{
 		couch.removeEventListener("click",couchStuff)
 		catbed.removeEventListener("click",catbedStuff)
 		// goback.addEventListener("click",goBack)
-		goback.style.opacity ="1"
-		goback.style.zIndex ="1"
+		// goback.style.opacity ="1"
+		// goback.style.zIndex ="1"
 
 	}
 
@@ -207,15 +212,25 @@ body{
 		bed.removeEventListener("click", bedStuff)
 		catbed.removeEventListener("click",catbedStuff)
 		// goback.addEventListener("click",goBack)
-		goback.style.opacity ="1"
-		goback.style.zIndex ="1"
+		// goback.style.opacity ="1"
+		// goback.style.zIndex ="1"
 
 	}
 
 	couch.addEventListener("click",couchStuff)
-	
+
+	// function goBack(){
+	// 	cat.style.animationName="goback"
+	// 	cat.style.animationDuration="1.5s"
+	// 	bed.addEventListener("click", bedStuff)
+	// 	catbed.addEventListener("click",catbedStuff)
+	// 	couch.addEventListener("click",couchstuff)
+	// 	cat.style.zIndex = 1
+	// 	curledcatcatbed.style.zIndex = 0
+	// 	curledcatbed.style.zIndex = 0
+	// 	curledcouch.style.zIndex = 0
+	// }
 		
-	
 </script>
 </body>
 </html>

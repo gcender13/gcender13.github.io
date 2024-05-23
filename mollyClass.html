@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		
+		.boxes{
+			width:100px;
+			height:100px;
+			background-color:red;
+		}
+	</style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+	var box;
+	
+	function makeDiv (){
+		 box = document.createElement("div")
+		document.body.appendChild(box)
+		box.classList.add("boxes")
+
+		box.addEventListener("click", makeBlue)
+
+
+	}
+
+	for (var i = 0; i<20; i++){
+		makeDiv()
+	}
+
+	var boxes = document.getElementsByClassName("boxes")
+	boxes = Array.from(boxes)
+
+	function makeBlue () { 
+		console.log("hi!")
+		boxes.forEach(element => element.style.backgroundColor = "blue")}
+
+
+</script>
+	
+
+</body>
+</html>
