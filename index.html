@@ -111,17 +111,15 @@
 		top:150px;
 		left:1250px;}
 }
-/*@keyframes goback{
+
+@keyframes gobacknow{
 	100%{
 		top:470px;
 		left:630px;}
 }
-*/
 body{
 	margin:0px;
 }
-
-
 </style>
 </head>
 <a href = "projects.html">
@@ -146,12 +144,11 @@ body{
 </a>
 <button id="goback">Go Back</button>
 <script type="text/javascript">
-	
 	function catbedHref(){
 		projectsHref.href="projects.html"
 		cat.style.opacity ="0"
+		cat.style.top = 140+"px"
 	}
-
 	function catbedShow(){
 		curledcatcatbed.style.opacity ="1"
 		curledcatcatbed.style.zIndex ="1"
@@ -159,20 +156,21 @@ body{
 	function catbedStuff(){
 		cat.style.animationName="walkcatbed"
 		cat.style.animationDuration="1.5s"
-		setTimeout(catbedHref,1500)
-		setTimeout(catbedShow,1550)
+		setTimeout(catbedHref,1400)
+		setTimeout(catbedShow,1450)
 		bed.removeEventListener("click", bedStuff)
 		couch.removeEventListener("click", couchStuff)
-		// goback.addEventListener("click",goBack)
-		// goback.style.opacity ="1"
-		// goback.style.zIndex ="1"
-
+		goback.addEventListener("click",goBack)
+		goback.style.opacity ="1"
+		goback.style.zIndex ="1"
 	}
 
 	catbed.addEventListener("click",catbedStuff)
 	function bedHref(){
 		journalHref.href="journal.html"
 		cat.style.opacity ="0"
+		cat.style.top = 140+"px"
+		cat.style.left = 0+"px"
 	}
 	function bedShow (){
 		curledcatbed.style.opacity ="1"
@@ -182,14 +180,13 @@ body{
 	function bedStuff (){
 		cat.style.animationName="walkbed"
 		cat.style.animationDuration="1.5s"
-		setTimeout(bedHref,1500)
-		setTimeout(bedShow,1550)
+		setTimeout(bedHref,1400)
+		setTimeout(bedShow,1450)
 		couch.removeEventListener("click",couchStuff)
 		catbed.removeEventListener("click",catbedStuff)
-		// goback.addEventListener("click",goBack)
-		// goback.style.opacity ="1"
-		// goback.style.zIndex ="1"
-
+		goback.addEventListener("click",goBack)
+		goback.style.opacity ="1"
+		goback.style.zIndex ="1"
 	}
 
 	bed.addEventListener("click", bedStuff)
@@ -197,6 +194,8 @@ body{
 	function couchHref(){
 		aboutHref.href="about.html"
 		cat.style.opacity ="0"
+		cat.style.top = 140+"px"
+		cat.style.left = 1250+"px"
 	}
 
 	function couchShow(){
@@ -207,30 +206,35 @@ body{
 	function couchStuff(){
 		cat.style.animationName="walkcouch"
 		cat.style.animationDuration="1.5s"
-		setTimeout(couchHref,1500)
-		setTimeout(couchShow,1550)
+		setTimeout(couchHref,1400)
+		setTimeout(couchShow,1450)
 		bed.removeEventListener("click", bedStuff)
 		catbed.removeEventListener("click",catbedStuff)
-		// goback.addEventListener("click",goBack)
-		// goback.style.opacity ="1"
-		// goback.style.zIndex ="1"
-
+		goback.addEventListener("click",goBack)
+		goback.style.opacity ="1"
+		goback.style.zIndex ="1"
 	}
-
 	couch.addEventListener("click",couchStuff)
 
-	// function goBack(){
-	// 	cat.style.animationName="goback"
-	// 	cat.style.animationDuration="1.5s"
-	// 	bed.addEventListener("click", bedStuff)
-	// 	catbed.addEventListener("click",catbedStuff)
-	// 	couch.addEventListener("click",couchstuff)
-	// 	cat.style.zIndex = 1
-	// 	curledcatcatbed.style.zIndex = 0
-	// 	curledcatbed.style.zIndex = 0
-	// 	curledcouch.style.zIndex = 0
-	// }
-		
+	function goBack(){
+		cat.style.animationName="gobacknow"
+		cat.style.animationDuration="1.5s"
+		bed.addEventListener("click", bedStuff)
+		catbed.addEventListener("click",catbedStuff)
+		couch.addEventListener("click",couchStuff)
+		cat.style.zIndex = "1"
+		cat.style.opacity = "1"
+		curledcatcatbed.style.opacity = "0"
+		curledcatbed.style.opacity = "0"
+		curledcatcouch.style.opacity = "0"
+		setTimeout(gobackdone,1450)
+	}
+	function gobackdone(){
+		console.log("back")
+		cat.style.top = 470 + "px"
+		cat.style.left = 630 + "px"
+		goback.style.opacity = 0
+	}
 </script>
 </body>
 </html>
